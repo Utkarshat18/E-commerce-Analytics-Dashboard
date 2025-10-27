@@ -127,7 +127,25 @@ export default function Realtimechart(){
     }
   };
 
+  const barData = useMemo(() => ({
+    labels: ordersPerProduct.labels,
+    datasets: [
+      {
+        label: "Orders",
+        data: ordersPerProduct.data,
+      }
+    ]
+  }), [ordersPerProduct]);
 
+  const barOptions = {
+    responsive: true,
+    plugins: { legend: { display: false }, title: { display: true, text: "Orders per Product" } },
+    scales: {
+      x: { title: { display: true, text: "Product" } },
+      y: { beginAtZero: true, title: { display: true, text: "Number of Orders" } }
+    }
+  };
+  
   const recentOrders = [...orders].slice(-10).reverse();
   return (
     <div style={{ padding: 16 }}>
@@ -142,6 +160,7 @@ export default function Realtimechart(){
 
           <div style={{background:"white"}}>
            {/* bargraph will come here */}
+            <Bar data={barData} options={barOptions} />
           </div>
         </div>
 
