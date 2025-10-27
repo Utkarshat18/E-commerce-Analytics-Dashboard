@@ -1,14 +1,3 @@
-// server/datagenerator.ts
-// export function startGenerator(broadcast: (payload: any) => void) {
-//   let time = Date.now();
-
-//   setInterval(() => {
-//     time += 1000 * 60; // next minute
-//     const value = Math.round(50 + 20 * Math.sin(time / 60000) + Math.random() * 10);
-//     broadcast({ type: "upcoming_data", ts: time, value });
-//   }, 3000);
-// }
-// server/datagenerator.ts
 
 const products = [
   "Laptop",

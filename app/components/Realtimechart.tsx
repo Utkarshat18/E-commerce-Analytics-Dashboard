@@ -145,8 +145,8 @@ export default function Realtimechart(){
       y: { beginAtZero: true, title: { display: true, text: "Number of Orders" } }
     }
   };
-  
-  const recentOrders = [...orders].slice(-10).reverse();
+
+  const recentOrders = [...orders].reverse();
   return (
     <div style={{ padding: 16 }}>
       <h2>Real-time Orders Dashboard</h2>
@@ -166,7 +166,7 @@ export default function Realtimechart(){
 
         <aside style={{ border: "1px solid #e5e7eb", borderRadius: 8, padding: 12 }}>
           <h3 style={{ marginTop: 0 }}>Recent Orders</h3>
-          <div style={{ maxHeight: 420, overflowY: "auto" }}>
+          <div style={{ maxHeight: 1000, overflowY: "auto" }}>
             <table style={{ width: "100%", fontSize: 13, borderCollapse: "collapse" }}>
               <thead>
                 <tr>
