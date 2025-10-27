@@ -137,6 +137,7 @@ export default function Realtimechart(){
         <div>
           <div style={{ marginBottom: 12, background:"white" }}>
           {/* Linechart will come here */}
+           <Line data={lineData} options={lineOptions} />
           </div>
 
           <div style={{background:"white"}}>
