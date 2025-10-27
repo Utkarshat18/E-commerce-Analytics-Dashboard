@@ -80,7 +80,21 @@ export default function Realtimechart(){
     };
   }, [wsUrl]);
 
+  const salesTimeSeries = useMemo(() => {
+    //storing data in bucket for every 1 minute
+    const buckets = new Map<number, number>(); 
+    orders.forEach(o => {
+      const bucket = Math.floor(o.timestamp / (1000 * 60)) * 60 * 1000; 
+      const sale = o.price * o.quantity;
+      buckets.set(bucket, (buckets.get(bucket) ?? 0) + sale);
+    });
+    const entries = Array.from(buckets.entries()).sort((a, b) => a[0] - b[0]);
 
+    return {
+      labels: entries.map(e => e[0]),
+      data: entries.map(e => parseFloat(e[1].toFixed(2))),
+    };
+  }, [orders]);
 
   const recentOrders = [...orders].slice(-10).reverse();
   return (
