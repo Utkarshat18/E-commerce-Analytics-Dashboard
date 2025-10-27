@@ -164,9 +164,9 @@ export default function Realtimechart(){
           </div>
         </div>
 
-        <aside style={{ border: "1px solid #e5e7eb", borderRadius: 8, padding: 12 }}>
+        <aside style={{ border: "1px solid #e5e7eb", borderRadius: 8, padding: 12}}>
           <h3 style={{ marginTop: 0 }}>Recent Orders</h3>
-          <div style={{ maxHeight: 1000, overflowY: "auto" }}>
+          <div style={{ maxHeight: 580,overflowY: "auto" }}>
             <table style={{ width: "100%", fontSize: 13, borderCollapse: "collapse" }}>
               <thead>
                 <tr>
