@@ -96,6 +96,16 @@ export default function Realtimechart(){
     };
   }, [orders]);
 
+  const ordersPerProduct = useMemo(() => {
+    const counts = new Map<string, number>();
+    orders.forEach(o => {
+      counts.set(o.productName, (counts.get(o.productName) ?? 0) + 1);
+    });
+
+    const entries = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]); 
+    return { labels: entries.map(e => e[0]), data: entries.map(e => e[1]) };
+  }, [orders]);
+
   const recentOrders = [...orders].slice(-10).reverse();
   return (
     <div style={{ padding: 16 }}>
