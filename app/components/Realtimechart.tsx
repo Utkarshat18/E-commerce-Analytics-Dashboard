@@ -106,6 +106,28 @@ export default function Realtimechart(){
     return { labels: entries.map(e => e[0]), data: entries.map(e => e[1]) };
   }, [orders]);
 
+  const lineData = useMemo(() => ({
+    datasets: [
+      {
+        label: "Total Sales (per minute)",
+        data: salesTimeSeries.labels.map((ts, i) => ({ x: ts, y: salesTimeSeries.data[i] })),
+        tension: 0.3,
+        fill: false,
+        pointRadius: 3,
+      },
+    ],
+  }), [salesTimeSeries]);
+
+  const lineOptions = {
+    responsive: true,
+    plugins: { legend: { display: true }, title: { display: true, text: "Total Sales Over Time" } },
+    scales: {
+      x: { type: "time" as const, time: { unit: "minute" as const } },
+      y: { beginAtZero: true, title: { display: true, text: "Sales (currency)" } }
+    }
+  };
+
+
   const recentOrders = [...orders].slice(-10).reverse();
   return (
     <div style={{ padding: 16 }}>
