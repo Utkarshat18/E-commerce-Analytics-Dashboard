@@ -6,6 +6,8 @@ npm run dev:server
 Start the frontend server
 npm run dev
 
+The Real-Time E-commerce Analytics Dashboard is important because it provides instant visibility into business performance, helping companies make data-driven decisions quickly. It enables real-time monitoring of sales trends, allowing teams to identify best-selling products and respond immediately to market changes.
+
 ## 🚀 Features
 ✅ **Real-Time Data Updates**
 - Node.js backend continuously generates and pushes new dummy product orders via WebSocket.
